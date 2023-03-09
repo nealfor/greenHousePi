@@ -21,7 +21,7 @@ def readWeatherAPI():
 
 DHT_SENSOR = Adafruit_DHT.DHT22
 DHT_PIN = 4
-api_url="https://api.openweathermap.org/data/2.5/weather?lat=34.811942&lon=-85.494148&appid=XXXXXXXXXXXXX&units=imperial"
+api_url="https://api.openweathermap.org/data/2.5/weather?lat=XXXXXX&lon=XXXXXXXX&appid=XXXXXXXXXXXXX&units=imperial"
 
 
 while True:
