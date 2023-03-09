@@ -1,7 +1,6 @@
 import Adafruit_DHT
 import requests
 import time
-import json
 
 def printData(tempReading, humidityReading):
     print("Temp={0:0.1f}*F  Humidity={1:0.1f}%".format(tempReading, humidityReading))
