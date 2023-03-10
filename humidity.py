@@ -25,6 +25,7 @@ api_url="https://api.openweathermap.org/data/2.5/weather?lat=XXXXXX&lon=XXXXXXXX
 
 while True:
     humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
+    temperature = (temperature * 1.8) + 32
 
     if humidity is not None and temperature is not None:
         printData(temperature, humidity)
