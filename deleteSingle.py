@@ -25,15 +25,24 @@ def deleteSingleItem():
     # Create a cursor object to execute SQL queries
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM data WHERE strftime('%d',date) = ? and ID = ?",[dateValue,value])
+    cursor.execute("SELECT * FROM data WHERE strftime('%d',date) = ? and ID = ?",[dateValue,value])        
     
-    rows = cursor.fetchall()
+    rows = cursor.fetchall()        
 
     # Iterate over the rows and print the data
     for row in rows:
        id, date, piTemp, piHumidity, webTemp, webOvercast = row
        print(f"ID: {id}, Date: {date}, Temperature: {piTemp}, Humidity: {piHumidity}, Web Temp: {webTemp}, Cloud Info: {webOvercast}")
     
+    # Check that we found only a single match before deleting this
+    # particular row
+    if (len(rows) != 1):
+      print("Item not found in this date range, check input and try again.")
+      # Close the cursor and connection
+      cursor.close()
+      conn.close()
+      quit()    
+
     cursor.execute("DELETE FROM data WHERE strftime('%d',date) = ? and ID = ?",[dateValue,value])
     
     #Commit your changes in the database
