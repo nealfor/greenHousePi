@@ -10,7 +10,7 @@ def deleteOldItems():
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM data WHERE date < ?",[str(deleteDate)])
-
+    
     rows = cursor.fetchall()
 
     # Iterate over the rows and print the data
@@ -18,10 +18,14 @@ def deleteOldItems():
        id, date, piTemp, piHumidity, webTemp, webOvercast = row
        print(f"ID: {id}, Date: {date}, Temperature: {piTemp}, Humidity: {piHumidity}, Web Temp: {webTemp}, Cloud Info: {webOvercast}")
 
+    cursor.execute("DELETE FROM data WHERE date < ?",[str(deleteDate)])
+
+    #Commit your changes in the database
+    conn.commit()
+    
     # Close the cursor and connection
     cursor.close()
     conn.close()
-
 
 
 value = input("Enter days of db items to keep(ex. 5 means delete any older than 5 days):\n")
@@ -43,4 +47,4 @@ deleteDate = deleteDate.replace(microsecond=0)
 
 deleteOldItems()
 
-print(deleteDate)
+print('Items Deleted')
