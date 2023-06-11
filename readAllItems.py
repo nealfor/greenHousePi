@@ -7,8 +7,7 @@ def readAllDB():
     # Create a cursor object to execute SQL queries
     cursor = conn.cursor()
 
-    # Insert the data into the 'data' table
-    #CREATE TABLE data(id INTEGER PRIMARY KEY AUTOINCREMENT, date DATETIME, piTemp REAL, piHumidity REAL, webTemp REAL, webOvercast TEXT);
+    # Insert the data into the 'data' table    
     cursor.execute("SELECT * FROM data")
 
     rows = cursor.fetchall()
