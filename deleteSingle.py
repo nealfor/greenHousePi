@@ -37,11 +37,11 @@ def deleteSingleItem():
     # Check that we found only a single match before deleting this
     # particular row
     if (len(rows) != 1):
-      print("Item not found in this date range, check input and try again.")
-      # Close the cursor and connection
-      cursor.close()
-      conn.close()
-      quit()    
+       print("Item not found in this date range, check input and try again.")
+       # Close the cursor and connection
+       cursor.close()
+       conn.close()
+       quit()    
 
     cursor.execute("DELETE FROM data WHERE strftime('%d',date) = ? and ID = ?",[dateValue,value])
     
