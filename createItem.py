@@ -25,6 +25,13 @@ def writeData():
 
 def readWeatherAPI():
     api_url="https://api.openweathermap.org/data/2.5/weather?lat=xxxxx&lon=-xxxxxx&appid=xxxxxxxxxxxxxxxxxxxxxxxxxxx&units=imperial"
+    response = None
+    while response is None:
+      try:
+         response = requests.get(api_url)
+      except:         
+         print("API Request failed, pausing 60 minutes before retry")
+         time.sleep(3600)
     response = requests.get(api_url)
     fullText = response.json()
     localTemp = fullText["main"]["temp"]
