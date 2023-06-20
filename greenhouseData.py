@@ -14,7 +14,7 @@ class greenhouseData(object):
         self.overCastData = overCastData
 
     def displayData(self):
-        print("Temperature From Sensor: " + self.timeOfReading)
+        print("Timestamp              : " + self.timeOfReading)
         print("Temperature From Sensor: {0:0.1f}F".format(self.tempReading))
         print("Humidity From Sensor   : {0:0.1f}%".format(self.humidityReading))
         print("Temperature From Web   : {0:0.1f}F".format(self.tempFromWeb))
