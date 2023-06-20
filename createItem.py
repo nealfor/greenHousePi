@@ -33,7 +33,7 @@ def readWeatherAPI():
       except:         
          print("API Request failed, pausing 60 minutes before retry")         
          if i is 6:
-            sendError()
+            sendError("API Request Failed After 7 Attempts")
             exit
          i += 1
          time.sleep(3600)
