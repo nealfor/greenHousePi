@@ -4,7 +4,7 @@ import sqlite3
 
 def displaySingleDate():
     # Connect to the SQLite database file
-    conn = sqlite3.connect('/home/neal/oopTemp/oopTemp.db')
+    conn = sqlite3.connect('Temp.db')
 
     # Create a cursor object to execute SQL queries
     cursor = conn.cursor()
@@ -20,7 +20,7 @@ def displaySingleDate():
 
 def deleteSingleItem():
     # Connect to the SQLite database file
-    conn = sqlite3.connect('/home/neal/oopTemp/oopTemp.db')
+    conn = sqlite3.connect('Temp.db')
 
     # Create a cursor object to execute SQL queries
     cursor = conn.cursor()
